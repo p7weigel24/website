@@ -1,0 +1,104 @@
+<html>
+<head>
+
+<script language="javaScript">
+
+function greeting()
+{
+  alert("hello");
+}
+
+
+function greeting2()
+{
+// Var declares a variable. use vare only once per variable
+// 1st time a variable is assigned data is called "initialize"
+  var name = prompt("Type your name"); // = is the assingment operator
+  alert("Hello there, "+name);                                   
+									  // This assigns the elenement on the right to
+									  // the element on the left 
+}
+function greeting3()
+{
+var name = confirm("Do you like my Website?"); // = is the assingment operator
+  alert(name);    
+}
+
+function guessing()
+{
+  /* block comment
+1. Create (declare)three variables: Rand (for random numbers)
+                                    usersguess (the guess that the user makes)
+									numOfGuesses ( increases by one each time the user makes another guess
+2. Set numOfGuesses to 0
+3. Create a random number between 1 and 10 . Store this in rand
+4. Set usersGuess to -1. ( Think about why -1
+5. Create a loop
+                while ( rand != usersGuess) // == tests equality. != tests if rand does not EQUAL uG
+6.Inside while
+             6a. increase numOfGuesses
+			 6b. prompt the user to input a new guess
+			 6c. if usersGuess is to low, alert this fact
+			 6d. if usersGuess is too high, alert this .
+7. After the while, alert that they are correct and how many guesses it took.
+
+
+  
+  */
+  
+  var usersGuess = -1;
+  var numOfGuesses = 0;
+  var rand = Math.random()*100 + 1; 
+  rand = parseInt(rand);
+
+
+  while (rand != usersGuess ) // loop while rand does NOT equal users guess
+  {
+      usersGuess = prompt ("Enter a number between 1-100.")  
+      numOfGuesses = numOfGuesses+1; // add one to var
+	                                   // numOfGuesses ++;
+	  if(usersGuess < rand)
+	  {
+	    alert ("Your guess is way to low.")
+	  }
+	else if(usersGuess > rand)
+	  {
+	    alert ("Your guess is way to high.")
+	  }
+	else
+	{
+		alert (" Correct !! You got the right number in  "+numOfGuesses+" guesses. ")
+ }
+}
+}
+</script>
+</head>
+
+<body background="images/bkgnd2.gif">
+<center>
+
+
+<h1> My First JavaScript Page </h1>
+<font face="Comic Sans MS"color="Black" 
+<h2>Click here to go to <a href="index.html"> my homepage.</a> </h2>
+<br/>
+
+<input type="button" value="Click me for my game!" onclick="guessing()"/>
+<br/>
+<br/>
+<input type="button" value="Click me for a message!" onclick="greeting()"/>
+
+
+
+<hr/>
+<input type="button" value="Click for question!" onclick="greeting2()"/>
+
+<hr/>
+<input type="button" value="Click for a confirmation!" onclick="greeting3()"/>
+
+
+
+</center>
+</body>
+</html>
+
