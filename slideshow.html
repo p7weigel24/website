@@ -1,0 +1,101 @@
+<html>
+<head>
+<script language= "javaScript">
+
+var timer;
+var autoStart = false;
+var counter = 0;
+var picList = [ "images/slideshow/slide1tacobell.jpg",
+				"images/slideshow/slide2inandout.jpg",
+				"images/slideshow/slide3mcdonalds.jpg",
+				"images/slideshow/slide4jackinthebox.jpg",
+				"images/slideshow/slide5fiveguys.jpg",
+				"images/slideshow/slide6chickfila.jpg"]
+				
+var clipList = [ "sounds/slide1tacobell.mp3",
+				 "sounds/slide2inandout.mp3",
+				 "sounds/slide3mcdonalds.mp3",
+				 "sounds/slide4jackinthebox.mp3",
+				 "sounds/slide5fiveguys.mp3",
+				 "sounds/slide6chickfila.mp3"]
+				 
+
+function nextPic()
+{
+	counter++;
+	document.getElementById("display").src=picList[counter];
+	document.getElementById("player").src=clipList[counter];
+    document.getElementById("player").play();
+	incrementCounter();
+}
+
+function incrementCounter()
+{
+  if(counter==picList.length-1)
+	{
+	counter = -1;
+	}
+}
+
+
+function run()
+{
+if (autoStart == false)
+{
+	autoStart = true ;
+	document.getElementById("runButton").value = "Pause";
+}
+else
+{
+	autoStart = false;
+	document.getElementById("runButton").value ="Run SlideShow";
+}
+		autoPlay();
+	
+}
+
+
+function autoPlay()
+{
+	if( autoStart == true)
+	{
+	nextPic();
+	//var clipTime = clipList[counter].length;
+	timer = setTimeout("autoPlay()" , 6000);
+	incrementCounter();
+	}
+}
+
+
+</script>
+
+
+
+
+
+</head>
+<body background="images/bkgnd2.gif">
+<center>
+<center>
+<font face="Comic Sans MS"color="Black" 
+<h1> My SlideShow </h1> 
+<br/>
+<br/>
+Click here to go to <a href="index.html"> my homepage.</a> 
+<br/> <br/>
+<input type= "Button" value = "Next Picture" onclick= "nextPic()"/>
+<input type= "Button" id="runButton" value = "Run SlideShow" onclick= "run()"/>
+<br/> <br/>
+<img src="images/slideshow/slide1tacobell.jpg" id= "display" />
+
+
+<audio id="player"> </audio>
+
+
+
+</center>
+
+
+</body>
+
+</html>
